@@ -199,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    // Add search input
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.placeholder = 'Search tasks...';
@@ -216,21 +215,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('input', (e) => searchTasks(e.target.value));
 
-    // Add keyboard shortcuts
     document.addEventListener('keydown', (e) => {
-      // Press '/' to focus search
       if (e.key === '/' && document.activeElement !== searchInput) {
         e.preventDefault();
         searchInput.focus();
       }
-      // Press 'n' to focus new task input
       if (e.key === 'n' && document.activeElement !== todoInput) {
         e.preventDefault();
         todoInput.focus();
       }
     });
 
-    // Add tooltip for keyboard shortcuts
     const tooltip = document.createElement('div');
     tooltip.innerHTML = `
       <div style="
@@ -250,6 +245,5 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.body.appendChild(tooltip);
 
-    // Initialize task counts
     updateTaskCounts();
   });
