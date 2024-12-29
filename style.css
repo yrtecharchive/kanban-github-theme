@@ -1,0 +1,309 @@
+:root {
+    --bg-dark: #0d1117;
+    --bg-darker: #010409;
+    --bg-card: #161b22;
+    --border-color: #30363d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-blue: #1f6feb;
+    --accent-green: #238636;
+    --accent-red: #da3633;
+    --accent-yellow: #bb8009;
+    --hover-bg: #1f2428;
+    --header-bg: #161b22;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Ubuntu, 'Droid Sans', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 2rem;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .header {
+    background: var(--header-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+  }
+
+  .header h1 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header h1 i {
+    color: var(--accent-blue);
+  }
+
+  #todo-form {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    position: relative;
+  }
+
+  .search-input {
+    width: 300px;
+    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+  }
+
+  .search-input:hover {
+    border-color: var(--accent-blue);
+  }
+
+  .search-input::placeholder {
+    color: var(--text-secondary);
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-size: 1rem;
+    pointer-events: none;
+  }
+
+  #todo-input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s ease;
+  }
+
+  #todo-input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.2);
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary {
+    background: var(--accent-green);
+    color: white;
+    border-color: rgba(240, 246, 252, 0.1);
+  }
+
+  .btn-primary:hover {
+    background: #2ea043;
+  }
+
+  .kanban-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .kanban-column {
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+  }
+
+  .column-header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .column-header h3 {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .column-header .task-count {
+    margin-left: auto;
+    background: var(--bg-dark);
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+  }
+
+  .task-list {
+    list-style: none;
+    min-height: 200px;
+  }
+
+  .task-item {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    cursor: grab;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+  }
+
+  .task-item:hover {
+    border-color: var(--accent-blue);
+    background: var(--hover-bg);
+  }
+
+  .task-item.dragging {
+    opacity: 0.5;
+    border: 1px dashed var(--accent-blue);
+  }
+
+  .task-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .task-item:hover .task-actions {
+    opacity: 1;
+  }
+
+  .task-actions button {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .btn-edit:hover { background: var(--accent-yellow); color: white; }
+  .btn-delete:hover { background: var(--accent-red); color: white; }
+
+  .dropzone {
+    border: 1px dashed var(--accent-blue);
+    background: rgba(31, 111, 235, 0.1);
+  }
+
+  .priority {
+    padding: 0.125rem 0.375rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .priority-high {
+    background: rgba(218, 54, 51, 0.2);
+    color: #ff7b72;
+  }
+
+  .priority-medium {
+    background: rgba(187, 128, 9, 0.2);
+    color: #d29922;
+  }
+
+  .priority-low {
+    background: rgba(35, 134, 54, 0.2);
+    color: #7ee787;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 1rem;
+    }
+    
+    .kanban-board {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Theme Toggle */
+  .theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .theme-toggle:hover {
+    background: var(--hover-bg);
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  

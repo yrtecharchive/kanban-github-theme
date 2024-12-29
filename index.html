@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Todo List - Yves Rey Badan</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>
+          <i class="fas fa-columns"></i>
+          Kanban To-Do List
+        </h1>
+        <form id="todo-form">
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="Add a new task..."
+            required
+          />
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-plus"></i>
+            Add Task
+          </button>
+        </form>
+      </div>
+
+      <div class="kanban-board">
+        <div class="kanban-column" id="todo-column">
+          <div class="column-header">
+            <h3>
+              <i class="fas fa-list-ul"></i>
+              To Do
+            </h3>
+            <span class="task-count" id="todo-count">0</span>
+          </div>
+          <ul class="task-list" id="todo-list"></ul>
+        </div>
+
+        <div class="kanban-column" id="in-progress-column">
+          <div class="column-header">
+            <h3>
+              <i class="fas fa-spinner"></i>
+              In Progress
+            </h3>
+            <span class="task-count" id="progress-count">0</span>
+          </div>
+          <ul class="task-list" id="in-progress-list"></ul>
+        </div>
+
+        <div class="kanban-column" id="completed-column">
+          <div class="column-header">
+            <h3>
+              <i class="fas fa-check-circle"></i>
+              Completed
+            </h3>
+            <span class="task-count" id="completed-count">0</span>
+          </div>
+          <ul class="task-list" id="completed-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Yves Rey Badan. All rights reserved.</p>
+      </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
